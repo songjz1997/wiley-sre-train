@@ -1,0 +1,10 @@
+  
+  208  rmdir ./Algo1/logs/oldlogs -r
+  209  find ./Algo1 -print
+  210  rm -rf ./Algo1/logs/oldlogs
+  211  find ./Algo1 -print
+  212  pwd
+  220  find ./Algo1 -name "*.sh"
+  221  cd ./Algo1/scripts
+  222  rm s*.sh
+  223  ls
