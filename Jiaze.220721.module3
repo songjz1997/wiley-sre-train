@@ -1,20 +1,45 @@
+###Change the directory to your home directory.
 debbiesong@wudixiaokeaideMacBook-Air ~ % cd ~
+
+
+###Print out your current directory.
 debbiesong@wudixiaokeaideMacBook-Air ~ % pwd
 /Users/debbiesong
+
+
+###Create a folder named Algo1.
 debbiesong@wudixiaokeaideMacBook-Air ~ % mkdir Algo1
+
+
+###Within Algo1, create subfolders named config, bin, logs, and scripts.
 debbiesong@wudixiaokeaideMacBook-Air ~ % cd Algo1
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % mkdir config bin logs scripts
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % ls
 bin	config	logs	scripts
+
+
+###Within config, create empty files named config.config and variables.
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd config
 debbiesong@wudixiaokeaideMacBook-Air config % touch config.config variables
 debbiesong@wudixiaokeaideMacBook-Air config % cd ..
+
+
+###Within scripts, create empty files named start.sh, stop.sh and admin.sh.
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd scripts
 debbiesong@wudixiaokeaideMacBook-Air scripts % touch start.sh stop.sh admin.sh
 debbiesong@wudixiaokeaideMacBook-Air scripts % cd ..
+
+
+###Within logs, create an empty file named today.log.
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd logs
 debbiesong@wudixiaokeaideMacBook-Air logs % touch today.log
+
+
+###Go back to your home directory.
 debbiesong@wudixiaokeaideMacBook-Air logs % cd ~
+
+
+###Long list everything recursively.
 debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -print
 ./Algo1
 ./Algo1/bin
@@ -27,28 +52,61 @@ debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -print
 ./Algo1/scripts/admin.sh
 ./Algo1/scripts/stop.sh
 ./Algo1/scripts/start.sh
+
+
+###Remove the file named variables in the config directory.
 debbiesong@wudixiaokeaideMacBook-Air ~ % cd ./Algo1/config
 debbiesong@wudixiaokeaideMacBook-Air config % rm variables
 debbiesong@wudixiaokeaideMacBook-Air config % ls
 config.config
-debbiesong@wudixiaokeaideMacBook-Air config % cd ..      
+
+
+###Remove the bin directory that you previously created.
+debbiesong@wudixiaokeaideMacBook-Air config % cd ..  
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % rmdir bin
+
+
+###Change back to your home directory.
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd ~
+
+
+###Create the bin directory again within Algo1.
 debbiesong@wudixiaokeaideMacBook-Air ~ % mkdir ./Algo1/bin
 debbiesong@wudixiaokeaideMacBook-Air ~ % cd Algo1
 debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd logs
+
+
+###Create a directory in the logs folder named oldlogs.
 debbiesong@wudixiaokeaideMacBook-Air logs % mkdir oldlogs
 debbiesong@wudixiaokeaideMacBook-Air logs % cd oldlogs
+
+
+###Within oldlogs, create folders named 2019, 2018, and 2017.
 debbiesong@wudixiaokeaideMacBook-Air oldlogs % mkdir 2019 2018 2017
+
+
+###Within 2019, create an empty file named 2019.log.
 debbiesong@wudixiaokeaideMacBook-Air oldlogs % cd 2019
 debbiesong@wudixiaokeaideMacBook-Air 2019 % touch 2019.log
+
+
+###Within 2017, create an empty file named 2017.log.
 debbiesong@wudixiaokeaideMacBook-Air 2019 % cd ..
 debbiesong@wudixiaokeaideMacBook-Air oldlogs % cd 2017
 debbiesong@wudixiaokeaideMacBook-Air 2017 % touch 2017.log
+
+
+###Within 2018, create an empty file named 2018.log.
 debbiesong@wudixiaokeaideMacBook-Air 2017 % cd ..
 debbiesong@wudixiaokeaideMacBook-Air oldlogs % cd 2018
 debbiesong@wudixiaokeaideMacBook-Air 2018 % touch 2018.log
+
+
+###Change back to your home directory.
 debbiesong@wudixiaokeaideMacBook-Air 2018 % cd ~
+
+
+###Remove oldlogs using one command.
 debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -print
 ./Algo1
 ./Algo1/bin
@@ -79,14 +137,26 @@ debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -print
 ./Algo1/scripts/admin.sh
 ./Algo1/scripts/stop.sh
 ./Algo1/scripts/start.sh
+
+
+###Ensure you are in your home directory.
 debbiesong@wudixiaokeaideMacBook-Air ~ % pwd
 /Users/debbiesong
+
+
+###Search for all files from your home directory that end in .sh.
 debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -name "*.sh"
 ./Algo1/scripts/admin.sh
 ./Algo1/scripts/stop.sh
 ./Algo1/scripts/start.sh
+
+
+###Go into the scripts directory and use a command to remove both the start and stop script without specifying each file separately: rm s*.sh
 debbiesong@wudixiaokeaideMacBook-Air ~ % cd ./Algo1/scripts
 debbiesong@wudixiaokeaideMacBook-Air scripts % rm s*.sh
 debbiesong@wudixiaokeaideMacBook-Air scripts % ls
 admin.sh
+
+
+###Run the following command to store your results in the directory that the trainer has provided – substitute your name and the date in your file.
 debbiesong@wudixiaokeaideMacBook-Air scripts % history>Jiaze.220721.module3
