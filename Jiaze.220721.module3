@@ -1,10 +1,92 @@
-  
-  208  rmdir ./Algo1/logs/oldlogs -r
-  209  find ./Algo1 -print
-  210  rm -rf ./Algo1/logs/oldlogs
-  211  find ./Algo1 -print
-  212  pwd
-  220  find ./Algo1 -name "*.sh"
-  221  cd ./Algo1/scripts
-  222  rm s*.sh
-  223  ls
+debbiesong@wudixiaokeaideMacBook-Air ~ % cd ~
+debbiesong@wudixiaokeaideMacBook-Air ~ % pwd
+/Users/debbiesong
+debbiesong@wudixiaokeaideMacBook-Air ~ % mkdir Algo1
+debbiesong@wudixiaokeaideMacBook-Air ~ % cd Algo1
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % mkdir config bin logs scripts
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % ls
+bin	config	logs	scripts
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd config
+debbiesong@wudixiaokeaideMacBook-Air config % touch config.config variables
+debbiesong@wudixiaokeaideMacBook-Air config % cd ..
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd scripts
+debbiesong@wudixiaokeaideMacBook-Air scripts % touch start.sh stop.sh admin.sh
+debbiesong@wudixiaokeaideMacBook-Air scripts % cd ..
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd logs
+debbiesong@wudixiaokeaideMacBook-Air logs % touch today.log
+debbiesong@wudixiaokeaideMacBook-Air logs % cd ~
+debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -print
+./Algo1
+./Algo1/bin
+./Algo1/config
+./Algo1/config/variables
+./Algo1/config/config.config
+./Algo1/logs
+./Algo1/logs/today.log
+./Algo1/scripts
+./Algo1/scripts/admin.sh
+./Algo1/scripts/stop.sh
+./Algo1/scripts/start.sh
+debbiesong@wudixiaokeaideMacBook-Air ~ % cd ./Algo1/config
+debbiesong@wudixiaokeaideMacBook-Air config % rm variables
+debbiesong@wudixiaokeaideMacBook-Air config % ls
+config.config
+debbiesong@wudixiaokeaideMacBook-Air config % cd ..      
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % rmdir bin
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd ~
+debbiesong@wudixiaokeaideMacBook-Air ~ % mkdir ./Algo1/bin
+debbiesong@wudixiaokeaideMacBook-Air ~ % cd Algo1
+debbiesong@wudixiaokeaideMacBook-Air Algo1 % cd logs
+debbiesong@wudixiaokeaideMacBook-Air logs % mkdir oldlogs
+debbiesong@wudixiaokeaideMacBook-Air logs % cd oldlogs
+debbiesong@wudixiaokeaideMacBook-Air oldlogs % mkdir 2019 2018 2017
+debbiesong@wudixiaokeaideMacBook-Air oldlogs % cd 2019
+debbiesong@wudixiaokeaideMacBook-Air 2019 % touch 2019.log
+debbiesong@wudixiaokeaideMacBook-Air 2019 % cd ..
+debbiesong@wudixiaokeaideMacBook-Air oldlogs % cd 2017
+debbiesong@wudixiaokeaideMacBook-Air 2017 % touch 2017.log
+debbiesong@wudixiaokeaideMacBook-Air 2017 % cd ..
+debbiesong@wudixiaokeaideMacBook-Air oldlogs % cd 2018
+debbiesong@wudixiaokeaideMacBook-Air 2018 % touch 2018.log
+debbiesong@wudixiaokeaideMacBook-Air 2018 % cd ~
+debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -print
+./Algo1
+./Algo1/bin
+./Algo1/config
+./Algo1/config/config.config
+./Algo1/logs
+./Algo1/logs/oldlogs
+./Algo1/logs/oldlogs/2017
+./Algo1/logs/oldlogs/2017/2017.log
+./Algo1/logs/oldlogs/2019
+./Algo1/logs/oldlogs/2019/2019.log
+./Algo1/logs/oldlogs/2018
+./Algo1/logs/oldlogs/2018/2018.log
+./Algo1/logs/today.log
+./Algo1/scripts
+./Algo1/scripts/admin.sh
+./Algo1/scripts/stop.sh
+./Algo1/scripts/start.sh
+debbiesong@wudixiaokeaideMacBook-Air ~ % rm -rf ./Algo1/logs/oldlogs   
+debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -print        
+./Algo1
+./Algo1/bin
+./Algo1/config
+./Algo1/config/config.config
+./Algo1/logs
+./Algo1/logs/today.log
+./Algo1/scripts
+./Algo1/scripts/admin.sh
+./Algo1/scripts/stop.sh
+./Algo1/scripts/start.sh
+debbiesong@wudixiaokeaideMacBook-Air ~ % pwd
+/Users/debbiesong
+debbiesong@wudixiaokeaideMacBook-Air ~ % find ./Algo1 -name "*.sh"
+./Algo1/scripts/admin.sh
+./Algo1/scripts/stop.sh
+./Algo1/scripts/start.sh
+debbiesong@wudixiaokeaideMacBook-Air ~ % cd ./Algo1/scripts
+debbiesong@wudixiaokeaideMacBook-Air scripts % rm s*.sh
+debbiesong@wudixiaokeaideMacBook-Air scripts % ls
+admin.sh
+debbiesong@wudixiaokeaideMacBook-Air scripts % history>Jiaze.220721.module3
