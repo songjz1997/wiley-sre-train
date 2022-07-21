@@ -1,0 +1,17 @@
+  110  clear
+  111  pwd
+  112  cd /var/log
+  113  cd -
+  114  pwd
+  115  ls 
+  116  ls -l
+  117  ls -lr
+  118  cd /
+  119  cd ~
+  120  cd ..
+  121  ls --help
+  122  cd /var
+  123  ls -lSr
+  124  uname -m
+  125  uname -a
+  126  history > Jiaze.220721.module2
