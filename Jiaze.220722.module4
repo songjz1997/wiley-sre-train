@@ -1,0 +1,80 @@
+Complete the following activities using the skills presented in Lesson 4.
+
+Create a variable named STOCK and assign it a value of AAPL
+
+Print the value of the variable out to the screen
+
+Change the value of the variable STOCK to be the previous value with _US appended onto the end
+
+Create a new variable named PRICE with value 290.84
+
+Print out to the screen a sentence ‘The current price of is ’ where you call the variables and get their values
+
+Create a variable named WHOAMI and assign it your current username. Do this in one command.
+
+Using just $ and () assign a variable named SERVERTYPE by using the uname command
+
+Write a command to show to the screen the value of running the command assigned to SERVERTYPE
+
+Assign a variable named CMD the command uname -i (not the value of running the command but the command itself)
+
+Using echo and the variable CMD, show how you echo the value of CMD (not execute the command)
+
+Using echo and the variable CMD, print what the CMD returns when run to the screen
+
+Change directory to your home directory
+
+Create a directory named scripts
+
+Print out your $PATH Value
+
+#####Append your newly created script directory to your path variable
+echo $PATH 
+mkdir scripts 
+export PATH="$HOME/scripts:$PATH"
+source ~/.bashrc 
+echo $PATH
+
+
+
+Check you can see your new path appended to the end of the path variable
+
+If you have Algo1 still created from previous exercises, remove the directory structure and all files within it
+
+Make a directory named Payment1
+
+Within Payment1, make three directories named logs, configuration, and scripts
+
+Within scripts, create an empty file named start.sh
+
+Within configuration, create an empty file named instance.properties
+
+Give everyone permission to read the instance.properties file, but assign write and execute permissons only to yourself
+
+Set permissions on the file start.sh so that everyone can execute and so that the group and owner can read and write
+
+Direct the output of man cat into a file in your home directory named cat.output
+
+Change the permission of that file so everyone can read it but only the group can write and execute
+
+Go back to your home directory
+
+Prove your location
+
+Remove the directory Payment1 along with all subdirectories
+
+Delete the cat.output file, but with a warning first to the user
+
+Create a directory named temp
+
+Set a variable named MYTEMP that references the new temp directory you just created
+
+Run a command to see the value of the MYTEMP variable
+
+Now set the value of $MYTEMP to nothing
+
+Remove the temp directory that you created
+
+Run the following command to store your results in the specified directory the trainer gave. Replace the name and date with the correct values:
+
+History > name.YYMMDD.module4
