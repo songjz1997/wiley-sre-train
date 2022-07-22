@@ -32,9 +32,7 @@ Print out your $PATH Value
 echo $PATH 
 mkdir scripts 
 export PATH="$HOME/scripts:$PATH"
-source ~/.bashrc 
 echo $PATH
-
 
 
 Check you can see your new path appended to the end of the path variable
