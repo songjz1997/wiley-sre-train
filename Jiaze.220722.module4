@@ -1,41 +1,79 @@
 Complete the following activities using the skills presented in Lesson 4.
 
-Create a variable named STOCK and assign it a value of AAPL
-
-Print the value of the variable out to the screen
-
-Change the value of the variable STOCK to be the previous value with _US appended onto the end
-
-Create a new variable named PRICE with value 290.84
-
-Print out to the screen a sentence ‘The current price of is ’ where you call the variables and get their values
-
-Create a variable named WHOAMI and assign it your current username. Do this in one command.
-
-Using just $ and () assign a variable named SERVERTYPE by using the uname command
-
-Write a command to show to the screen the value of running the command assigned to SERVERTYPE
-
-Assign a variable named CMD the command uname -i (not the value of running the command but the command itself)
-
-Using echo and the variable CMD, show how you echo the value of CMD (not execute the command)
-
-Using echo and the variable CMD, print what the CMD returns when run to the screen
-
-Change directory to your home directory
-
-Create a directory named scripts
-
-Print out your $PATH Value
-
-#####Append your newly created script directory to your path variable
-echo $PATH 
-mkdir scripts 
-export PATH="$HOME/scripts:$PATH"
-echo $PATH
+###Create a variable named STOCK and assign it a value of AAPL
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ STOCK='AAPL'
 
 
-Check you can see your new path appended to the end of the path variable
+###Print the value of the variable out to the screen
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $STOCK
+AAPL
+
+
+###Change the value of the variable STOCK to be the previous value with _US appended onto the end
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ export STOCK+='_US'
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $STOCK
+AAPL_US
+
+
+###Create a new variable named PRICE with value 290.84
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ PRICE=290.84
+
+
+###Print out to the screen a sentence ‘The current price of is ’ where you call the variables and get their values
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo "The current price of is $PRICE"
+The current price of is 290.84
+
+
+###Create a variable named WHOAMI and assign it your current username. Do this in one command.
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ WHOAMI=$(whoami)
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $WHOAMI
+ubuntu
+
+
+###Using just $ and () assign a variable named SERVERTYPE by using the uname command
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ SERVERTYPE=$(uname)
+
+
+###Write a command to show to the screen the value of running the command assigned to SERVERTYPE
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $SERVERTYPE
+Linux
+
+
+###Assign a variable named CMD the command uname -i (not the value of running the command but the command itself)
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ CMD="uname -i"
+
+
+###Using echo and the variable CMD, show how you echo the value of CMD (not execute the command)
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $CMD
+uname -i
+
+
+###Using echo and the variable CMD, print what the CMD returns when run to the screen
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo `$CMD`
+x86_64
+
+
+###Change directory to your home directory
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ cd ~
+
+
+###Create a directory named scripts
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ mkdir scripts
+
+
+###Print out your $PATH Value
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+
+###Append your newly created script directory to your path variable
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ export PATH=$PATH:~/scripts
+
+
+###Check you can see your new path appended to the end of the path variable
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ubuntu/scripts
+
 
 If you have Algo1 still created from previous exercises, remove the directory structure and all files within it
 
