@@ -75,42 +75,91 @@ ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/ubuntu/scripts
 
 
-If you have Algo1 still created from previous exercises, remove the directory structure and all files within it
+###If you have Algo1 still created from previous exercises, remove the directory structure and all files within it
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ rm -r Algo1
 
-Make a directory named Payment1
 
-Within Payment1, make three directories named logs, configuration, and scripts
+###scMake a directory named Payment1
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ mkdir Payment1
 
-Within scripts, create an empty file named start.sh
 
-Within configuration, create an empty file named instance.properties
+###Within Payment1, make three directories named logs, configuration, and scripts
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ cd Payment1
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1$ mkdir logs configuration scripts
 
-Give everyone permission to read the instance.properties file, but assign write and execute permissons only to yourself
 
-Set permissions on the file start.sh so that everyone can execute and so that the group and owner can read and write
+###Within scripts, create an empty file named start.sh
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/scripts$ touch start.sh
 
-Direct the output of man cat into a file in your home directory named cat.output
 
-Change the permission of that file so everyone can read it but only the group can write and execute
+###Within configuration, create an empty file named instance.properties
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/configuration$ touch instance.properties
 
-Go back to your home directory
 
-Prove your location
+###Give everyone permission to read the instance.properties file, but assign write and execute permissons only to yourself
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/configuration$ chmod 744 instance.properties
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/configuration$ ls -ltra
+total 8
+drwxrwxr-x 5 ubuntu ubuntu 4096 Jul 22 04:23 ..
+-rwxr--r-- 1 ubuntu ubuntu    0 Jul 22 04:31 instance.properties
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jul 22 04:31 .
 
-Remove the directory Payment1 along with all subdirectories
 
-Delete the cat.output file, but with a warning first to the user
+###Set permissions on the file start.sh so that everyone can execute and so that the group and owner can read and write
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/scripts$ chmod 771 start.sh 
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/scripts$ ls -ltra
+total 8
+drwxrwxr-x 5 ubuntu ubuntu 4096 Jul 22 04:23 ..
+-rwxrwx--x 1 ubuntu ubuntu    0 Jul 22 04:24 start.sh
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jul 22 04:24 .
 
-Create a directory named temp
 
-Set a variable named MYTEMP that references the new temp directory you just created
+###Direct the output of man cat into a file in your home directory named cat.output
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/scripts$ man cat > ~/cat.output
 
-Run a command to see the value of the MYTEMP variable
 
-Now set the value of $MYTEMP to nothing
+###Change the permission of that file so everyone can read it but only the group can write and execute
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/scripts$ chmod 474 ~/cat.output
 
-Remove the temp directory that you created
 
-Run the following command to store your results in the specified directory the trainer gave. Replace the name and date with the correct values:
+###Go back to your home directory
+ubuntu@ip-172-31-24-238:~/wiley-sre-train/Payment1/scripts$ cd ~
 
+
+###Prove your location
+ubuntu@ip-172-31-24-238:~$ pwd
+/home/ubuntu
+
+
+###Remove the directory Payment1 along with all subdirectories
+ubuntu@ip-172-31-24-238:~$ rm -r /home/ubuntu/wiley-sre-train/Payment1
+
+
+###Delete the cat.output file, but with a warning first to the user
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ sudo rm -rf ~/cat.output
+
+
+###Create a directory named temp
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ mkdir temp
+
+
+###Set a variable named MYTEMP that references the new temp directory you just created
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ MYTEMP=`find ~/ -name temp`
+
+
+###Run a command to see the value of the MYTEMP variable
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ echo $MYTEMP
+/home/ubuntu/wiley-sre-train/temp
+
+
+###Now set the value of $MYTEMP to nothing
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ unset MYTEMP
+
+
+###Remove the temp directory that you created
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ rm -rf ./temp
+
+
+###Run the following command to store your results in the specified directory the trainer gave. Replace the name and date with the correct values:
 History > name.YYMMDD.module4
+ubuntu@ip-172-31-24-238:~/wiley-sre-train$ history > Jiaze.220722.module4
