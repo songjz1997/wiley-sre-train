@@ -58,3 +58,43 @@ i "line count 5"
 ###Rename the file avengers.yourname and put it in the location specified by the instructor.
 mv avengers avengers.Jiaze
 
+
+###PART 2
+
+cd ~
+./fixGenerator.sh &
+
+
+###Run a search for all new order singles in the fix log output and put the output of that search into a file named newOrders.log in your home directory.
+cat fixlog20220722155834.log | grep "39=0" > newOrders.log
+
+
+###Open newOrders.log in your editor.
+vim newOrders.log
+
+
+###Duplicate the first line in the file.
+1G yy $ p
+
+
+###Go to the fifth line in the file and duplicate it also.
+5G yy $ p
+
+
+###Find and replace every instance of MTHREE with M3.
+/MTHREE r M3 
+
+
+###Find and replace every ; (semicolon) with a , (comma) and ensure there is no space after the commas.
+/; r ,
+/,  r ,
+
+
+###Save and exit the file.
+:wq
+
+
+###Rename your file to newOrders.<yourname>.log and save it in the directory specified by the instructor.
+mv newOrders.log newOrders.Jiaze.log
+
+
