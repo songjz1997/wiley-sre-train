@@ -12,11 +12,10 @@ for i in {1..25};do echo $TEXT $i;done > forloop.out
 
 
 ###Write a sed command that creates a new output file from forloop.out where instead of saying "the number is ", it will now say "the number is not ". Name the file forloop2.out
+sed 's/The number is/The number is not/' forloop.out > forloop2.out
 
 
-
-Try running the following if statement to get familiar with it:
-
+###Try running the following if statement to get familiar with it:
 i=1
 if(( $i==1 ))
 then
@@ -27,12 +26,33 @@ echo "i is equal to 2"
 else
 echo "i is neither 1 or 2"
 fi
-Change the value of i to be something not 1 or 2 and check that the statement works again.
 
-Create a variable of today's date named TODAY in the format of DD.MM.YYYY.
 
-Create another variable named GENDATE that has the command to generate and store the same date.
+###Change the value of i to be something not 1 or 2 and check that the statement works again.
+i=3
+if(( $i==1 ))
+then
+echo "i is equal to 1"
+elif(($i==2))
+then
+echo "i is equal to 2"
+else
+echo "i is neither 1 or 2"
+fi
 
-Create a file named output.log with today’s date as an extension using the variable you just created.
 
-Run the history command and put the output into a file named name.YYMMDD.module1112 in the directory specified by your instructor.
+###Create a variable of today's date named TODAY in the format of DD.MM.YYYY.
+TODAY=`date+%d.%m.%Y`
+
+
+###Create another variable named GENDATE that has the command to generate and store the same date.
+GENDATE='date+%d.%m.%Y'
+
+
+###Create a file named output.log with today’s date as an extension using the variable you just created.
+touch output.log.$TODAY
+
+
+###Run the history command and put the output into a file named name.YYMMDD.module1112 in the directory specified by your instructor.
+history>Jiaze.220726.module1112
+
