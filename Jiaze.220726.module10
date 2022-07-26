@@ -50,7 +50,7 @@ cp cancels.log cancels2.log
 
 ###Open the cancels2.log file in an editor. Find the first symbol (tag 55) in the first line and add the letter A to the beginning of the value. (If it was 55=GOOG, it will become 55=AGOOG.)
 vim cancels2.log 
-:%s/55=/55=A/g
+:s/55=/55=A/g
 
 
 ###Run a difference between the original cancels file and the new file you just edited.
