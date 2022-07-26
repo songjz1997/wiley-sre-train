@@ -36,7 +36,7 @@ cat fixlog20220726120311.log ｜ grep -v "39=0" > fixlog.log
 
 
 ###Using the || command, run a search in this new file for new order messages or for execution messages (35=8).
-cat fixlog.log || grep "35=8" | less
+cat fixlog.log | grep "35=8"||"39=0" | less
 
 
 ###Run the watch command on the date to see it work.
