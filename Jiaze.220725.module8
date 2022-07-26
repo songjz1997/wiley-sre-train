@@ -16,7 +16,7 @@ i "word count 98"
 
 
 ###Now use search and replace within the editor to replace every instance of the word the with THE. Ensure that you only catch the word the and not words that contain the letters the (like them).
-/the R THE
+%s/ the / THE /g
 
 
 ###Copy the first line of the file and paste it after your word count entry at the bottom of the file.
@@ -82,12 +82,12 @@ vim newOrders.log
 
 
 ###Find and replace every instance of MTHREE with M3.
-/MTHREE r M3 
+%s/MTHREE/M3/g 
 
 
 ###Find and replace every ; (semicolon) with a , (comma) and ensure there is no space after the commas.
-/; r ,
-/,  r ,
+%s/;/,/g
+%s/, /,/g
 
 
 ###Save and exit the file.
