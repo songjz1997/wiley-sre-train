@@ -1,5 +1,4 @@
 ###Run the fixGenerator.sh script in your home directory:
-
 ./fixGenerator.sh &
 
 
@@ -21,7 +20,7 @@ jobs
 
 
 ###Using the jobs command and other commands you have learned, bring the 700 second sleep job to the foreground.
-fg sleep 700
+fg %1
 
 
 ###Run a command to sleep for 10 seconds in the background and then print out "hello world" to the screen.
