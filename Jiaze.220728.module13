@@ -77,18 +77,35 @@ txt % ls -l | grep "^-" | wc -l
 Working with Text
 For the following activities, start by putting the following text into a file named LOTR.txt. Use the new file to complete the exercises.
 ###Do a case-insensitive search of the file for hobbit and output the results to the screen.
+cat LOTR.txt | grep "hobbit"
 
 
 ###Put the first eight lines and the last three lines into a new file named LOTRtxt.
+head -8 LOTR.txt > LOTRtxt
+tail -3 LOTR.txt >> LOTRtxt
 
-Run a command on the command line to replace all occurrences of Gollum with Thanos and output the results into a new file named LOTRMarvel.txt.
 
-On the command line, run a command to compare the LOTR.txt with LOTRMarvel.txt.
+###Run a command on the command line to replace all occurrences of Gollum with Thanos and output the results into a new file named LOTRMarvel.txt.
+sed 's/Gollum/Thanos/g' LOTR.txt > LOTRMarvel.txt
 
-Change the permission on LOTR.txt so that it is read and executable for others and group, and fully accessible for the current user.
 
-Count the number of words in LOTR.txt.
+###On the command line, run a command to compare the LOTR.txt with LOTRMarvel.txt.
+diff LOTR.txt LOTRMarvel.txt
 
-Rename the LOTR.txt file to LordOfTheRings.txt.
 
-Create a compressed tarball named LOTR.tar.gz that includes all the files you have created in this set of exercises.
+###Change the permission on LOTR.txt so that it is read and executable for others and group, and fully accessible for the current user.
+chmod 755 LOTR.txt
+
+
+###Count the number of words in LOTR.txt.
+cat LOTR.txt | wc -w
+
+
+###Rename the LOTR.txt file to LordOfTheRings.txt.
+mv LOTR.txt LordOfTheRings.txt 
+
+
+###Create a compressed tarball named LOTR.tar.gz that includes all the files you have created in this set of exercises.
+tar -cvf LOTR.tar.gz LordOfTheRings.txt LOTR.txt LOTRMarvel.txt LOTRtxt
+
+
