@@ -106,6 +106,6 @@ mv LOTR.txt LordOfTheRings.txt
 
 
 ###Create a compressed tarball named LOTR.tar.gz that includes all the files you have created in this set of exercises.
-tar -cvf LOTR.tar.gz LordOfTheRings.txt LOTR.txt LOTRMarvel.txt LOTRtxt
+tar -cvf LOTR.tar.gz LordOfTheRings.txt LOTRMarvel.txt LOTRtxt
 
 
