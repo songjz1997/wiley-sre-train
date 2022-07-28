@@ -62,16 +62,16 @@ touch seq3.txt
 echo "my choice is 3" > seq3.txt
 
 
-Generate a list of these files and add the list to another file named list.txt.
+###Generate a list of these files and add the list to another file named list.txt.
 ls > list.txt
 
 
-Use a single command to copy the contents of all files with seq in the name into a file named total.txt.
+###Use a single command to copy the contents of all files with seq in the name into a file named total.txt.
 cat seq*.txt > total.txt
 
 
-Write a single command that shows how many files you have in your current directory.
-txt % ls -l | grep "^-" | wc -l
+###Write a single command that shows how many files you have in your current directory.
+ls -l | grep "^-" | wc -l
 
 
 Working with Text
