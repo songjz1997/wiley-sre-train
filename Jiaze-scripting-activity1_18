@@ -324,7 +324,14 @@ echo "Quiz ends!"
 ###each of the calculations, using a phrase that identifies the value
 
 
+#!/bin/bash
 
+#~/bin/bash
+
+echo "Enter 5-10 integers:"
+read one two three four five six seven eight nine ten
+
+echo "Values entered:$one $two $three $four $five $six $seven $eight $nine $ten"
 
 
 
@@ -400,6 +407,8 @@ sort number_11 -n -r | uniq
 
 
 
+
+
 ###Activity 12
 ###Write a script that checks if two files have at least one common element or not. Display an appropriate message for both scenarios. The file names should be specified as parameters. You will need to create the files to test this.
 
@@ -418,24 +427,9 @@ fi
 
 
 
+
 ###Activity 13
 ###Write a script that takes two files of unique numbers and displays the difference between the two lists (without using grep).
-
-
-###(without grep)
-#!/bin/bash
-
-sort -n 13_1 > 13_1s
-sort -n 13_2 > 13_2s
-echo "Only in file 1:"
-comm -23 13_1s 13_2s
-echo ""
-echo "Only in file 2:"
-comm -13 13_1s 13_2s
-
-
-
-
 
 ###For example:
 
@@ -460,6 +454,24 @@ comm -13 13_1s 13_2s
 ###Only in file 2:
 ###89
 ###7
+
+
+
+###(without grep)
+#!/bin/bash
+
+sort -n 13_1 > 13_1s
+sort -n 13_2 > 13_2s
+echo "Only in file 1:"
+comm -23 13_1s 13_2s
+echo ""
+echo "Only in file 2:"
+comm -13 13_1s 13_2s
+
+
+
+
+
 ###Stretch: Create a new script that does the same thing using grep. Which script runs faster?
 
 
@@ -481,55 +493,117 @@ grep -v -f 13_1 13_2
 
 ###Write a script that will parse the file, producing an output csv file that will list the word and each time it appears in the file.
 
-Make sure the list is sorted in the file such that the most common word is listed at the top and then descending. For example, a couple of lines in the output file should look like this:
+###Make sure the list is sorted in the file such that the most common word is listed at the top and then descending. For example, a couple of lines in the output file should look like this:
 
-And,200
-Is,195
+###And,200
+###Is,195
+
+
+#!/bin/bash
+
+cp books ~/
+
+cat books | sort | uniq -c | sort -k1,1nr | head -10 > books.csv
+
 
 
 
 
 
 ###Activity 15
-Imagine that you support the fix Generator script. Write a wrapper script to set up your environment properly. You can also edit the fixGenerator script if you need to.
+###Imagine that you support the fix Generator script. Write a wrapper script to set up your environment properly. You can also edit the fixGenerator script if you need to.
 
-Your fixGenerator script should be in a folder called FixGen in your home directory. The script needs to do the following:
+###Your fixGenerator script should be in a folder called FixGen in your home directory. The script needs to do the following:
 
-Check for a folder called FixGen/logs and if not present create it
-Compress all log files that are not the latest 3 logs files generated.
-Run the FixGenerator script with the log file being generated into the FixGen/logs directory.
-Once complete, add a cron job that will run Monday through Friday 6 a.m. to establish your environment.
+###Check for a folder called FixGen/logs and if not present create it
+###Compress all log files that are not the latest 3 logs files generated.
+###Run the FixGenerator script with the log file being generated into the FixGen/logs directory.
+###Once complete, add a cron job that will run Monday through Friday 6 a.m. to establish your environment.
 
-Remember to code defensively and ensure that you use exit codes so we know the job has successfully run. Your script should also output its own log file where we can see the status each step of the way of each part of the script.
-
-
+###Remember to code defensively and ensure that you use exit codes so we know the job has successfully run. Your script should also output its own log file where we can see the status each step of the way of each part of the script.
 
 
+#!/bin/bash
+
+today=`date +%Y%j%H%M%S`
+if [ ! -n ~/FixGen/logs ] ;then
+  mkdir ~/FixGen
+  mkdir ~/FixGen/logs
+  echo "Successfully generate the directory." >> 15_$today.log
+else
+  echo "The folder ~/FixGen/logs already exists." >> 15_$today.log
+fi
 
 
-Activity 16
-Write a script that will output a csv that could be loaded into ITRS Geneos for monitoring on your fixGen script.
-
-It needs to parse the log file and produce a count of each message type that has been received or sent.
-Ensure you distinguish in the csv file if the message was sent or received.
-Also ensure you display the message type in English so it is easy to understand in monitoring. An example might look like:
-Number of Partial fills,12
-
-
+file=`ls -tr fixlog* | tail -n +4`
+if [ ! -n "$file" ] ;then
+  echo "There is no enough log files." >> 15_$today.log
+else
+  tar -cvf compress_log.tar $file
+  echo "Successfully compress the following log files: $file" >>15_$today.log
+fi
 
 
+~/FixGen/logs/FixGenerator.sh &
+if [ $? -ne 0 ];then
+    echo "The script failed to run." >> 15_$today.log
+else
+    echo "The script runs successfully." >> 15_$today.log
+fi
 
-Activity 17
-Create a script to convert your fix log file into a useful csv.
 
-Pull out the following information for each message:
 
-If the fix tag is in the message, leave a blank in the csv so that it will load appropriately in Excel.
-Translate the message type value into meaningful words.
-Ensure you have a header row in your csv file:
-Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price 
+###Cronjob:
+00 6 * * 1,2,3,4,5 /Users/debbiesong/FixGen/logs/fixGenerator.sh
+
+
+
+
+
+###Activity 16
+###Write a script that will output a csv that could be loaded into ITRS Geneos for monitoring on your fixGen script.
+
+###It needs to parse the log file and produce a count of each message type that has been received or sent.
+###Ensure you distinguish in the csv file if the message was sent or received.
+###Also ensure you display the message type in English so it is easy to understand in monitoring. An example might look like:
+###Number of Partial fills,12
+
+
+#!/bin/bash
+
+file=fixlog20220801110156.log
+New=`cat $file | grep -o 150=0 | wc -l`
+Part=`cat $file | grep -o 150=1 | wc -l`
+Fill=`cat $file | grep -o 150=2 | wc -l`
+Can=`cat $file | grep -o 150=4 | wc -l`
+Pendcal=`cat $file | grep -o 150=6 | wc -l`
+
+echo "Number of New orders,$New" >> $file.csv
+echo "Number of Parial fills,$Part" >> $file.csv
+echo "Number of Full fills,$Fill" >> $file.csv
+echo "Number of Cancelled orders,$Can" >> $file.csv
+echo "Number of Pending Cancel orders,$Pendcal" >> $file.csv
+
+
+
+
+
+
+###Activity 17
+###Create a script to convert your fix log file into a useful csv.
+
+###Pull out the following information for each message:
+
+###If the fix tag is in the message, leave a blank in the csv so that it will load appropriately in Excel.
+###Translate the message type value into meaningful words.
+###Ensure you have a header row in your csv file:
+###Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price 
 Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price
 
+
+if (fix = )
+
+awk
 
 
 
@@ -538,7 +612,6 @@ Client, Message type, stock, quantity, price, side, order id, last quantity, exe
 ###Run the fixGenerator script to generate a fix log file.
 
 ./fixGenerator.sh
-
 
 
 ###Create a script to parse that log file and for each order create a text description of what happened with that order.
@@ -551,5 +624,5 @@ Client, Message type, stock, quantity, price, side, order id, last quantity, exe
 ###Final state of order for apple with order id 12335: traded 40 shares at price 54.2. 
 ###Remember that each time you run the fix generator script, it creates a new log file so this is a good way to test.
 
-
+sed 
 
