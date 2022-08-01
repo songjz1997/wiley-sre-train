@@ -399,6 +399,8 @@ touch number_11
 ###Sort the numbers into reverse order and output them to the screen
 ###Each number should output exactly once. Duplicate numbers should not appear in the output.
 
+
+###the numbers are in file number_11 and each number is in one line
 #!/bin/bash
 
 cat number_11
@@ -456,8 +458,8 @@ fi
 ###7
 
 
-
 ###(without grep)
+###my file 1 is 13_1 and my file 2 is 13_2
 #!/bin/bash
 
 sort -n 13_1 > 13_1s
@@ -476,6 +478,7 @@ comm -13 13_1s 13_2s
 
 
 ###(with grep)
+###my file 1 is 13_1 and my file 2 is 13_2
 #!/bin/bash
 
 echo "Only in file 1:"
@@ -597,13 +600,15 @@ echo "Number of Pending Cancel orders,$Pendcal" >> $file.csv
 ###If the fix tag is in the message, leave a blank in the csv so that it will load appropriately in Excel.
 ###Translate the message type value into meaningful words.
 ###Ensure you have a header row in your csv file:
-###Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price 
-Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price
+###Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price
 
 
-if (fix = )
+#!/bin/bash
 
-awk
+file=fixlog20220801110156.log
+sed -i 'Client, Message type, stock, quantity, price, side, order id, last quantity, exec id, last price' $file.csv
+
+awk -F';' '{print $5,$11,$7,$17,$10,$13,$21,$15,$16,$14}' $file >> $file.csv
 
 
 
