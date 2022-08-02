@@ -1,8 +1,13 @@
 Transaction: a set of one or more actions that represents a single or one unit of work
 
-ACID : not required, but for security reason need to have
+ACID : not required, but for protecting data quality reason need to have
 
 Atomicity : all or nothing, cannot be partially successful
-Consistency : 
+Consistency : make sure the data requirements always keep the same, not only for the types and sizes of data, but also for the primary key and foreign key relationships 
 Isolation : When someone is editing, the data is always locked. Two users cannot edit the data at the same time; only after one user has done, another user can edit on the latest version 
 Durability : the transaction data will stay committed once it has been completed
+
+Transaction log: a history of executed actions. Ensure the database remains consistent.
+Backup: data backup - large and only periodically 
+        log backup - smaller
+        database cluster - use multiple database servers and execute transactions on each. One fails, another takes its place
