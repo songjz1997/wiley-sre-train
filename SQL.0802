@@ -1,3 +1,30 @@
+Introduction to Relational Databases:
+
+
+database: a structured representation of data that can be read from and write to
+DBSM: database management system, software to manage the databases; eg, MySQL, Oracle
+
+
+Table: Relation, a logical grouping of data in a relational database
+Columns: Attribute, define the name and type of data in database row
+Rows: Record, Tuple,  A single, logical unit item in a table.
+
+Keys:
+  Primary Key: A unique column in each row, identify every row
+  Foreign Key: A copy of another table's primary key to cross-related to the table
+
+
+Relationships:
+
+  One-to-one: Id to Id
+  One-to-many: Id to products
+  Many-to-many: customers to products
+  
+
+
+ACID Compliance:
+
+
 Transaction: a set of one or more actions that represents a single or one unit of work
 
 ACID : not required, but for protecting data quality reason need to have
