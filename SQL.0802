@@ -22,6 +22,8 @@ Relationships:
 
 
 
+
+
 ACID Compliance:
 
 
@@ -38,6 +40,8 @@ Transaction log: a history of executed actions. Ensure the database remains cons
 Backup: data backup - large and only periodically 
         log backup - smaller
         database cluster - use multiple database servers and execute transactions on each. One fails, another takes its place
+
+
 
 
 
@@ -82,8 +86,9 @@ Transitive Dependency: some non-prime attribute other than the candidate key tha
                        A -> PK, B -> PK, A -> B then, we can say A -> PK through B =>> A is transitively dependent on PK.
                        
 
-
 Denormalization: the process of adding precomputed redundant data in order to improve read performance of the database.
+
+
 
 
 
