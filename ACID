@@ -1,0 +1,8 @@
+Transaction: a set of one or more actions that represents a single or one unit of work
+
+ACID : not required, but for security reason need to have
+
+Atomicity : all or nothing, cannot be partially successful
+Consistency : 
+Isolation : When someone is editing, the data is always locked. Two users cannot edit the data at the same time; only after one user has done, another user can edit on the latest version 
+Durability : the transaction data will stay committed once it has been completed
