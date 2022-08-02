@@ -4,7 +4,6 @@ Introduction to Relational Databases:
 database: a structured representation of data that can be read from and write to
 DBSM: database management system, software to manage the databases; eg, MySQL, Oracle
 
-
 Table: Relation, a logical grouping of data in a relational database
 Columns: Attribute, define the name and type of data in database row
 Rows: Record, Tuple,  A single, logical unit item in a table.
@@ -13,13 +12,14 @@ Keys:
   Primary Key: A unique column in each row, identify every row
   Foreign Key: A copy of another table's primary key to cross-related to the table
 
-
 Relationships:
 
-  One-to-one: Id to Id
-  One-to-many: Id to products
+  One-to-one: ID to ID
+  One-to-many: ID to products
   Many-to-many: customers to products
-  
+
+
+
 
 
 ACID Compliance:
@@ -38,3 +38,94 @@ Transaction log: a history of executed actions. Ensure the database remains cons
 Backup: data backup - large and only periodically 
         log backup - smaller
         database cluster - use multiple database servers and execute transactions on each. One fails, another takes its place
+
+
+
+
+
+Relational Design and Normalization:
+
+
+Normalization: the process of break down complexe relationships into simpler structures 
+
+Data Redundancy: the act of storing the exact same piece of data multiple times in the database
+
+Anomalies are caused when there is too much redundancy in the database's information.
+  Update anomaly: An update anomaly is a data inconsistency that results from data redundancy and a partial update.
+  Insert anomaly
+  Delete anomaly: unnecessary deletion of important information from the table
+  
+Functional Dependencies: dependency relationship 
+                         like: a -> b
+                         all columns will depend on at least one column in the table
+                         some data is dependent on other data is key to designing good database structures
+                         
+Heap (Denormalized information): it is unstructured and has no constraints that are required by any normal form.
+
+First Normal Form (1NF): each cell of the table must only have single value. 
+
+    no top-to-bottom ordering to the rows
+    no left-to-right ordering to the columns (data in a table can be accessed in any order)
+    every row can be uniquely identified (a unique key)
+    every row/column intersection(field) contains only one value (prevent from storing multiple values in one field; limiting the length of the field)
+
+  
+Second Normal Form (2NF): no non-prime attributes in the table are dependent on any of the candidate key. 
+If the table is representative of two different entities then it should be broken down into their own entities
+
+
+Third Normal Form (3NF): tables must be in 2NF form and each table should only contain columns that are non-transitively depended on primary key of their own table.
+each attribute must directly depend upon the primary key.
+  
+
+Transitive Dependency: some non-prime attribute other than the candidate key that depends on another non-prime attribute that is dependent entirely on the candidate key.
+                       A -> PK, B -> PK, A -> B then, we can say A -> PK through B =>> A is transitively dependent on PK.
+                       
+
+
+Denormalization: the process of adding precomputed redundant data in order to improve read performance of the database.
+
+
+
+
+
+Entity Relationship Diagram:
+
+
+ERD: Entity Relationship Diagram - a visual representation of the database structure. 
+                                   a description of the kind of data that the table will hold.
+     
+     A well-designed ERD should includes the following information:
+     
+         The tables required by the database, including the name of each table.
+         A list of fields contained in each table.
+         Metadata about each field, including the name of the field, its data type, and whether or not it is nullable.
+         Identification of all primary and foreign key fields.
+         How each table is related to each other.
+         
+Tables: A table is represented by a rectangle, normally divided into three sections horizontally (table name, primary key, columns)
+
+
+Fields: Includes a basic list of fields in the table, each field name should be a description of the data the field will store.
+
+
+Keys: Need to indicate the primary and foreign keys. PK underlines the primary key field.
+
+
+Relationships: representations of individual tables
+               PK - primary key, FK - foreign key 
+               one-to-one, one-to-many, many-to-one, many-to-many
+
+
+ERD of database: It allows us to see all fields in all tables in a single view, as well as identify how the tables are connected to each other.
+
+                                   
+                                   
+                                   
+
+
+
+
+
+
+
