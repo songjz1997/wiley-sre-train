@@ -1,0 +1,147 @@
+SQL Overview:
+
+Data manipulation, Data access, 
+SQL non-procedural, declarative
+
+DDL Definition (Create, Drop,  Truncate)
+DML Manipulation (Insert, Update, delete)
+
+Syntax, semi colon, spaces, line break/indents, letter case, commas, quotation marks
+
+Proper syntax refers to the proper order of statement/command
+
+Semi colon is used to end the sentence
+
+Need 1 space for word identification
+
+Line breaks/indent immune, can be used to organise code in readable format
+
+commas are important, it may result in syntax error
+
+Quotation marks " ' error and char datatype
+
+Case insentive, recommended to capitalise commands
+
+
+
+
+
+Null Values:
+
+It indicates which fields are nullable, null values is an empty value; it contains no value at all, which is indicated by "NULL" in the cell/blank cell
+
+NULL vs ZERO
+Null values are not the same as zero, meaning the value here is missing
+
+Nullable fields
+When creating a table, we need to decide if each field in the table is nullable or not
+Set a "NOT NULL" to indicate null values are not acceptable.
+
+eg:
+CREATE TABLE PRODUCT(
+Product INT NOT NULL PRIMARY KEY,
+ProductName VARCHAR(25) NOT NULL)
+
+Sometimes null values are acceptable, some info may remain emtpy
+
+Nulls in a table have an impact on the efficiency of the database; Even null value occupy the space
+
+
+
+
+
+
+Indexes:
+
+
+A look up table, improve finding of data, save time but need memory!!
+
+create index:
+"CREATE INDEX person_idx ON person (firstname)"
+
+Query optimizer: make the most efficient way
+
+Unique and non-unique indexes
+Primary key and Foreign key
+
+each database can have more than one index,
+
+Indexes requires memory 
+- indexed field tell the db where to look for related data when the user wants to retrieve data using an indexed value 
+- loaded into the Primary memory when databae is open
+
+if primary memory is full, extra content will go into swap disk, a sextion in harddrive where overflown data from the primary memory is stored
+reduntant as it will become slow again if memory overflown
+
+Add new data into a database, it needs to create new records
+
+
+
+
+
+Data Definition Language:
+
+
+Create, 
+
+MySQL Datatypes
+Numeric: INT, Float/doubles, Decimal/numeric(x,y)
+Temporal: date, time, datetime
+Strings: char, varchar, tinytext/text/longtext
+Large binary: Huge values represented as bytes or text can grow to 4GB per field
+
+
+Designing database schema 
+Project
+Task
+Worker
+
+
+CREATE, ALTER, DROP
+
+CREATE DATABASE IF NOT EXISTS nameofdatabase;
+
+USE Nameofdatabase;
+CREATE TABLE NameofTable (
+    ColumnName1 TYPE PRIMARY KEY AUTO_INCREMENT,
+    ColumnName2 TYPE ...);
+
+ALTER TABLES
+Add/Romove columns
+Change an existing column definition: data type,nullability or default calues 
+Add/Remove constraints
+
+ALTER TABLE Task
+  ADD COLUMN(
+      ProjectID CHAR(50) NOT NULL);
+  ADD CONSTRAINT fk_Task_Project
+      FOREIGN KEY (ProjectID)
+      REFERENCES Project(ProjectID)
+    
+Modify the table 
+ALTER TABLE name
+MODIFY COLUMN FirstName Varchar(50) NOT NULL
+
+
+DROP DATABASE Databasename; 
+
+DROP TABLE TableName;
+
+ALTER TABLE Worker
+    DROP FOREIGN KEY fk_Worker_Project
+    DROP COLUMN ProjectID
+
+
+Bridge Table: Includes a foreign key from each table it bridges
+
+Truncate delete the data not the table
+    
+
+
+
+
+
+
+
+
+
