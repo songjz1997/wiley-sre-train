@@ -64,3 +64,4 @@ INSERT INTO reservation VALUES(25,11,302,'Maritza Tilton','2','0','2023-12-24','
 SET SQL_SAFE_UPDATES = 0;
 DELETE FROM reservation WHERE GuestId=(SELECT Guestid from Guest WHERE Name='Jeremiah Pendergrass');
 DELETE FROM Guest WHERE Name='Jeremiah Pendergrass';
+SET SQL_SAFE_UPDATES = 1;
