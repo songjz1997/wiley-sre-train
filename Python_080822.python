@@ -1,4 +1,32 @@
+
 name = 'Lily'
 name2 = 'Anna'
 
 print (f'Good morning, {name} and {name2}!')
+
+
+###Data Type
+#Binary Types: memoryview, bytearray, bytes.
+#Boolean Type: bool.
+#Set Types: frozenset, set.
+#Mapping Type: dict.
+#Sequence Types: range, tuple, list.
+#Numeric Types: complex, float, int.
+#Text Type: str.
+
+
+#Task the user to enter a number over 100 and then enter a number under 10 and tell how many times the smaller number goes into the larger number in a user-friendly format.
+a = int(input("Enter a larger value over 100: "))
+b = int(input ("Enter a smaller value under 10: "))
+
+print(f"There are {a//b} times the smaller number goes into the larger number.")
+
+
+
+#Write a program that will ask for a number of days and then will show how many hours, minutes and seconds are in that number of days.
+
+day = int(input("Enter a number of days:"))
+
+print(f"There are {day*24} hours, {day*24*60} minutes and {day*24*60*60} seconds in {day} days.")
+
+
