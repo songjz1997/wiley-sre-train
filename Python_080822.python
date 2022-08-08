@@ -30,3 +30,390 @@ day = int(input("Enter a number of days:"))
 print(f"There are {day*24} hours, {day*24*60} minutes and {day*24*60*60} seconds in {day} days.")
 
 
+#if else
+
+#if elif else
+
+#Operators {logical and comparison}
+
+# - Logical: and or || &&
+# - Comparison: = > < != <= >=
+
+# difference btw = and ==
+
+num = int(input("Enter the number:"))
+if num == 3 or num == 4:
+    print("The value is with in the range")
+else:
+    print("The value is out of range")
+
+
+
+# Ask the user to enter 1, 2 or 3. If they enter a 1, display the message “Thank you”, if they enter a 2, display “Well done”, if they enter a 3, display “Correct”. If they enter anything else, display “Error message”.
+
+user_input = int(input("Enter 1, 2 or 3:"))
+
+if user_input == 1:
+    print("Thank you")
+elif user_input == 2:
+    print("Well done")
+elif user_input == 3:
+    print("Correct")
+else:
+    print("Error message")
+
+
+# Python Syntax 
+
+#activity_1
+# display the text in quotation marks to an output block
+print("Python is fun!")
+
+# Display the text in quotation marks to an output block 
+# without moving any of the existing acode to a different line
+print("Python is fun! Python is also easy.")
+
+# Display the text in quotation marks to an output block 
+# without moving any of the existing code to a different line
+print("Python is fun!")
+# ("Python is fun!")
+
+# Change each variable name to an appropriate name for Python. 
+# Do not use the same variable name more than one time.
+name_1 = "Rebecca" # first name
+name_2 = "Roberts" # last name
+ 
+# After changing the variable names, update the code below 
+# to print out each name.
+print(name_1)
+print(name_2)
+
+
+#activity_2
+# Add a new line of code that displays the text in quotation marks 
+# to an output block without repeating the text in quotation marks.
+output = "I love Python!"
+print(output)
+ 
+# your code below this line
+# Display only the text Python is fun! to an output block 
+# without deleting any of the existing code
+print("Python is fun!")
+#print("Python is also easy!")
+
+
+#activity_3
+born_state=input("Enter the name of state where you were born:")
+live_state=input("Enter the name of state where you live now:")
+
+print(f"The born state is {born_state} and the living state is {live_state}.")
+
+
+#self-assessment
+#Song Jiaze 2022-08-08
+
+firstname=input("Enter your first name:")
+lastname=input("Enter your last name:")
+phone=input("Enter your phone number:")
+year=input("Enter your born year:")
+
+print(f"Your first name is {firstname} , last name is {lastname}, phone number is {phone} and you were born in {year}.")
+
+
+#Basic Python Data Types
+
+#activity_1
+int_1 = input("Enter an integer:")
+print(f"The type is {type(int_1)}.")
+int_2=int(float(int_1))
+print(f"The value is {int_2} with type {type(int_2)} .")
+
+
+#activity_2
+
+# do not change the order in which the numbers and operators appear in the next line
+result = (5 + 3) ** 2 * 9 
+ 
+print(result) # the output should be 576
+
+
+#activity_3
+
+num=input(Enter a float number:)
+print(f"The integer portion of the floating number is {int(float(a))}")
+
+
+#activity_4
+
+p=float(input("Enter the initial deposit:"))
+r=float(input("Enter the interest rate as a fraction:"))
+n=float(input("Enter the number of times per year interest is calculated:"))
+t=float(input("Enter the number of years since the initial deposit:"))
+
+print(f"The initial deposit is {p}. The interest rate as a fraction is {r}. The number of times per year interest is calculated is {n}. The number of years since the initial deposit is {t}. The value is {p*(1 + r/n)**(n*t)}.")
+
+
+#activity_5
+
+principal=float(input("Enter the principal amount:"))
+rate=float(input("Enter the rate of interest:"))
+day=int(input("Enter the number of days for the loan:"))
+
+print(f"The simple interest for the life of the loan is {principal*rate*day/365}.")
+
+
+#activity_6
+
+print("a=0")
+print("b=1")
+print("Output: a<b = True")
+
+print("a=0")
+print("b=1")
+print("Output: a>b = False")
+
+
+#activity_7
+
+import math
+num=input("Enter a number:")
+print(f"You selected {num}")
+print(f"The boolean of your number is {bool(num)}")
+print(f"The binary equivalent of your number is {bin(int(num))}")
+print(f"The square root of your number is {math.sqrt(float(num))}")
+
+
+#activity_8
+
+a = [0, 0, 0, 0, 0]
+for i in range(5):
+    a[i] = int(input('Enter a number: '))
+
+print("The numbers you entered:",a[0], a[1], a[2], a[3], a[4])
+print("The average of the integers:",sum(a)/len(a))
+print("The sum of the integers:",sum(a))
+
+
+#activity_9
+
+address=input("Enter the address:")
+print(address)
+print(f'The building or house number is {address.split(" ", 1 )[0]}')
+print(f'The street name is {address.split(" ", 1 )[1]}')
+
+
+
+#self_assessment
+#Song Jiaze 2022-08-08
+
+fname=input("Enter your first name: ")
+lname=input("Enter your last name: ")
+city=input("Enter the city you live: ")
+hourwage=float(input("Enter the hourly wage: "))
+hourwork=float(input("Enter the number of hours you work each week: "))
+
+print(f"Hi, {fname.capitalize()} {lname.capitalize()}! How are you? I hope the weather is nice in {city.capitalize()}. Based on the information you provided, you earn {hourwage*hourwork} dollars per week, approximately {hourwage*hourwork*4} dollars per month, and {hourwage*hourwork*48} dollars per year.")
+
+
+
+#Conditional Statements
+
+#activity_1
+m=float(input("How much money in your wallet? "))
+if m>=20:
+    print("You're rich!")
+else:
+    print("You're broke!")
+    
+#activity_2
+#version1 use if else
+c=input("Do you own any cats? (yes or no)")
+d=input("Do you own any dogs? (yes or no)")
+
+if (c=='yes' and d=='yes'):
+  print("You must really love pets!")
+else:
+  print("Maybe you need more pets.")
+
+#Version2 only use if
+c=input("Do you own any cats? (yes or no)")
+d=input("Do you own any dogs? (yes or no)")
+
+if (c=='yes' and d=='yes'):
+  print("You must really love pets!")
+if (c=='no' or d=='no'):
+  print("Maybe you need more pets.")  
+
+
+#activity_3
+q1=input("1+1=2? (true or false) ")
+q2=input("1+4=2? (true or false) ")
+q3=input("1*1=2? (true or false) ")
+q4=input("1+3=2? (true or false) ")
+q5=input("1+2=3? (true or false) ")
+c=0
+if q1=='true': 
+  c=c+1
+if q2=='false': 
+  c=c+1
+if q3=='false': 
+  c=c+1
+if q4=='false': 
+  c=c+1
+if q5=='true': 
+  c=c+1
+print("1+1=2? Correct answer: true, Your answer:",q1)
+print("1+4=2? Correct answer: false, Your answer:",q2)
+print("1*1=2? Correct answer: false, Your answer:",q3)
+print("1+3=2? Correct answer: false, Your answer:",q4)
+print("1+2=3? Correct answer: true, Your answer:",q5)
+print("The user's correct response rate is",c/5)
+
+
+#activity_4
+season=input("What season it is? (fall, winter, spring, or summer) ")
+if (season.casefold()=='fall' or season.casefold()=='autumn') :
+  print("I bet the leaves are pretty there!")
+elif season.casefold()=='winter':
+  print("I hope you're ready for snow!")
+elif season.casefold()=='spring':
+  print("I can smell the flowers!")
+elif season.casefold()=='summer':
+  print("Make sure your AC is working!")
+else:
+  print("I don't recognize that season.")
+
+
+###Getting Started with Python
+#activity_11
+name=input("Enter the first and last name: ")
+address=input("Enter the street address: ")
+city=input("Enter the city, state, and zip: ")
+phone=input("Enter the 10-digit phone number: ")
+print()
+print("The contact data is as follows:")
+print(name)
+print(address)
+print(city)
+print(phone)
+print()
+
+change=input("Enter the item you wanna change (name,address,city,phone): ")
+new_value=input("New value for the item: ")
+if change=='name':
+    name=new_value
+elif change=='address':
+    address=new_value
+elif change=='city':
+    city=new_value
+elif change=='phone':
+    phone=new_value
+print()
+print("Updated contact data is as follows:")
+print(name)
+print(address)
+print(city)
+print(phone)
+
+
+
+#activity_12
+name=input("Enter the first and last name: ")
+address=input("Enter the street address: ")
+city=input("Enter the city: ")
+state=input("Enter the state: ")
+zip=input("Enter the zip: ")
+phone=input("Enter the 10-digit phone number: ")
+email=input("Enter the email address: ")
+print()
+print("The contact to the user is:")
+print(name)
+print(address)
+print(city)
+print(state)
+print(zip)
+print(phone)
+print(email)
+
+
+
+#activity_13
+name=input("Enter the first and last name: ")
+address=input("Enter the street address: ")
+city=input("Enter the city: ")
+state=input("Enter the state: ")
+zip=input("Enter the zip: ")
+phone=input("Enter the 10-digit phone number: ")
+email=input("Enter the email address: ")
+print()
+print("The contact to the user is:")
+print(name)
+print(address)
+print(city)
+print(state)
+print(zip)
+print(phone)
+print(email)
+change=input("Enter the item you wanna change (name,address,city,state,zip,phone,email): ")
+new_value=input("New value for the item: ")
+if change=='name':
+    name=new_value
+elif change=='address':
+    address=new_value
+elif change=='city':
+    city=new_value
+elif change=='state':
+    state=new_value
+elif change=='city':
+    zip=new_value    
+elif change=='phone':
+    phone=new_value
+elif change=='email':
+    email=new_value
+
+
+###coffee shop
+
+#Song Jiaze 2022-08-08
+p=0
+print("Do you want small, medium, or large?")
+size=input()
+if size=='small':
+    p=2
+elif size=='medium':
+    p=3
+elif size=='large':
+    p=4
+else:
+    print("Error message")
+    exit(1)
+
+print("Do you want brewed, espresso, or cold brew?")
+type=input()
+if type=='brewed':
+    p=p+0
+elif type=='espresso':
+    p=p+0.5
+elif type=='cold brew':
+    p=p+1
+else:
+    print("Error message")
+    exit(1)
+print("Do you want a flavored syrup? (Yes or No)")
+syrup=input()
+if syrup=='Yes':
+    p=p+0.5
+    s='syrup'
+    
+    print("Do you want hazelnut, vanilla, or caramel?")
+    flavor=input()
+    if (flavor!='hazelnut' and flavor!='vanilla' and flavor!='caramel'):
+        print("Error message")
+        exit(1)    
+elif syrup=='No':
+    s=''
+
+print(f"You asked for a {size} cup of {type} coffee with {flavor}.")
+print("Your cup of coffee costs",p)
+print("The price with a tip is",round(p*1.15,2))
+
