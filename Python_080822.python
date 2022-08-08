@@ -1,0 +1,4 @@
+name = 'Lily'
+name2 = 'Anna'
+
+print (f'Good morning, {name} and {name2}!')
