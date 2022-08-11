@@ -1,0 +1,105 @@
+Summary for data type, class:
+
+###Data Type
+#Binary Types: memoryview, bytearray, bytes.
+#Boolean Type: bool.
+#Set Types: frozenset, set.
+#Mapping Type: dict.
+#Sequence Types: range, tuple, list.
+#Numeric Types: complex, float, int.
+#Text Type: str.
+
+Class:
+A class is a user-defined blueprint or prototype from which objects are created.
+
+Object:
+An object is simply a collection of data (variables) and methods (functions) that act on those data. Similarly, a class is a blueprint for that object.
+
+Summary for loops:
+
+1. while loop
+With the while loop we can execute a set of statements as long as a condition is true.
+
+"break"
+Example:
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break   ----> if the condition (i==3) meets it will end the loop
+  i += 1
+ 
+ 
+"continue" 
+Example:
+i = 0
+while i < 6:
+  i += 1
+  if i == 3:
+    continue   ----> continue to the next iteration if i==3:
+  print(i)
+
+
+"else"
+Example:
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+else:
+  print("i is no longer less than 6")  ----> when the while condition fails, it will execute this step
+
+
+2. for loop
+With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.
+
+
+"break"
+With the break statement we can stop the loop before it has looped through all the items:
+example:
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+  if x == "banana":
+    break  ---->  stop the loop before it has looped through all the items when the (x=="banana") meets
+
+
+"continue"
+With the continue statement we can stop the current iteration of the loop, and continue with the next:    
+example:
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  if x == "banana":
+    continue  ---->  skip the following step: (print(x))
+  print(x)
+  
+
+"range()"
+To loop through a set of code a specified number of times, we can use the range() function,
+The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and ends at a specified number.
+example:
+for x in range(6):
+  print(x)
+
+The third parameter specifies the increment value: range(2, 30, 3)
+
+
+"else"
+The else keyword in a for loop specifies a block of code to be executed when the loop is finished:
+example:
+for x in range(6):
+  print(x)
+else:         ---->  when x is not in the range, the following step will be executed
+  print("Finally finished!")
+ 
+ 
+Nested Loop
+A nested loop is a loop inside a loop.
+The "inner loop" will be executed one time for each iteration of the "outer loop".
+
+
+"pass"
+for loops cannot be empty, but if you for some reason have a for loop with no content, put in the pass statement to avoid getting an error.
+example:
+for x in [0, 1, 2]:
+  pass
