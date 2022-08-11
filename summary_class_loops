@@ -12,8 +12,18 @@ Summary for data type, class:
 Class:
 A class is a user-defined blueprint or prototype from which objects are created.
 
+Class Definition Syntax:
+
+class ClassName:
+    # Statement
+    
 Object:
 An object is simply a collection of data (variables) and methods (functions) that act on those data. Similarly, a class is a blueprint for that object.
+
+Object Definition Syntax: 
+obj = ClassName()
+
+print(obj.atrr)
 
 Summary for loops:
 
