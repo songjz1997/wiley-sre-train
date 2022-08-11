@@ -45,6 +45,78 @@ l[i]=(input("Enter the new value: "))
 t=tuple(l)
 print(t)
 
+#7
+f=input("Enter a string: ")
+for i in f:
+    print(i)
+
+#8
+f=input("Enter a string: ")
+c=0
+for i in f:
+    c=c+1
+print(f"The length of the string is {c}")
+
+#9
+a = ["a", "bc", "rye", "hello", "c", ""]
+l=[]
+for i in a:
+    if len(i)>2:
+        l.append(i)
+print(l)
+
+#10
+#version 1
+for i in range(100,1001,50):
+    print(i)
+
+#version 2
+i=100
+while i<1001:
+    print(i)
+    i=i+50
+
+#11
+for i in range(0,101):
+    sum = sum + i
+print(sum)    
+
+#12
+f=input("Enter a number: ")
+for i in range(1,int(f)+1):
+   factorial=factorial*i
+print(factorial)
+
+#13
+fruit_list = ["apple", "banana", "cherry", "gooseberry", "kumquat", "orange", "pineapple"]
+print(fruit_list)
+f=input("Enter a fruit: ")
+while f!='stop':
+    if f in fruit_list:
+        print(f"The input index is {fruit_list.index(f)}. If you want to end the script, please enter 'stop'.") 
+        f=input("Enter a fruit: ")
+    else:    
+        print("The input is not in the list, please try again. If you want to end the script, please enter 'stop'.")
+        f=input("Enter a fruit: ")
+        
+#14
+list=[]
+f=input("Enter an integer: ")
+if (f!='quit' and f!='QUIT'):
+    list.append(int(f))
+while (f!='quit' and f!='QUIT'):
+    f=input("Enter a value: ")
+    if (f!='quit' and f!='QUIT'):
+        list.append(int(f))
+print(list)
+print(sum(list))
+
+#15
+f=input("Enter an integer: ")
+for i in range(1,int(f)+1):
+    print(i,"X",int(f),"=",i*int(f))
+    
+
 
 ###Assignment: Text Count Analysis
 
