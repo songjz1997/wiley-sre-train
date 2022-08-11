@@ -1,0 +1,9 @@
+#1
+a1=input("Enter your name")
+a2=input("Enter your age")
+a3=input("Enter your city")
+
+list=[a1,a2,a3]
+print(list)
+
+#2
