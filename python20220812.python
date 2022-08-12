@@ -95,7 +95,7 @@ class Fruit:
         self.color = attr3
         self.price = attr4
         
-    def display_info(self):
+    def display(self):
         print("Fruit Name: " + self.name)
         print("Fruit Flavor: " + self.flavor)
         print("Fruit Color: " + self.color)
@@ -117,14 +117,167 @@ w = Fruit("sweet","watermelon","green","5")
 wo = Owner("Lily","Lee",w)
 wo.display()
 
-#Self-assessment: A Simple Calculator
-#Song Jiaze
 
-class SimpleCalculator(var1,var2):
+
+
+
+#Self-assessment: A Simple Calculator
+#Song Jiaze 2022-08-12
+
+class SimpleCalculator():
+    def __init__(self, var1, var2):
+        self.var1 = var1
+        self.var2 = var2
+
     def addition(self):
+        return self.var1 + self.var2
+
+    def subtraction(self):
+        return self.var1 - self.var2
+
+    def multiplication(self):
+        return self.var1 * self.var2
+
+    def division(self):
+        return self.var1 / self.var2
+
+while True:
+    var1 = int(input('Please enter the first number: '))
+    var2 = int(input('Please enter the second number: '))
+    v = SimpleCalculator(var1, var2)
+    def menu():
+        x = ('Addition \nSubtraction \nMultiplication \nDivision \nExit (Quit)')
+        print(x)
+    menu()
+    choice = input('Please select one of the above operators: ')
+    if choice.casefold() == 'addition':
+        print("Result:", v.addition(),"\n")
+    elif choice.casefold() == 'subtraction':
+        print("Result:", v.subtraction(),"\n")
+    elif choice.casefold() == 'multiplication':
+        print("Result:", v.multiplication(),"\n")
+    elif choice.casefold() == 'division':
+        print("Result:", v.division(),"\n")
+    elif (choice.casefold() == 'quit' or choice.casefold() == 'exit'):
+        print("The program ends. Thanks for your input.\n")
+        break
+    else:
+        print("Please try again.\n")
+ 
+ 
+ 
+ #Inheritance
+ #0
+ class Fruit:
+    flavor=""
+    name=""
+    color=""
+    price=""
+    def __init__(self,attr1,attr2,attr3,attr4): #self refers to the current object
+        self.flavor = attr1 #assign input attr1 to first_name
+        self.name = attr2 #assign input attr2 to last_name
+        self.color = attr3
+        self.price = attr4
         
-    def substraction(self):
-    
-    def multiplication():
-    
-    def division():
+    def display(self):
+        print("Fruit Name: " + self.name)
+        print("Fruit Flavor: " + self.flavor)
+        print("Fruit Color: " + self.color)
+        print("Fruit Price: " + self.price)
+        
+#1,2
+class Owner(Fruit):
+    first_name=None
+    last_name=None
+    a=None
+    def __init__(self,ainfo,fname,lname):
+        self.first_name = fname
+        self.last_name = lname
+        self.a = ainfo
+        
+    def display(self):
+        Fruit.display(self)
+        print("The owner of the fruit is",self.first_name,self.last_name)
+
+f_1=Fruit("sweet","watermelon","green","5")
+f_2=Fruit("sour","lemon","yellow","5")
+of_1 = Owner(f_1,"Lily","Lee")
+of_2 = Owner(f_2,"Green","Ta")
+of_1.display()
+of_2.display()
+
+#3,4
+class Fruit:
+    flavor = ""
+    name = ""
+    color = ""
+    price = ""
+
+    def __init__(self, attr1, attr2, attr3, attr4):
+        self.flavor = attr1 
+        self.name = attr2  
+        self.color = attr3
+        self.price = attr4
+
+    def display(self):
+        print("Fruit name: " + self.name)
+        print("Fruit flavor: " + self.flavor)
+        print("Fruit color: " + self.color)
+        print("Fruit Price: " + self.price)
+
+
+class Shop(Fruit):
+    shop_id = None
+    shop_type = None
+    shop_name = None
+
+    def __init__(self, shop_id, shop_type, shop_name, attr1, attr2, attr3, attr4):
+        Fruit.__init__(self, attr1, attr2, attr3, attr4)
+        self.shop_id = shop_id
+        self.shop_type = shop_type
+        self.shop_name = shop_name
+
+    def display(self):
+        print("Shop ID: " + self.shop_id)
+        print("Shop Type: " + self.shop_type)
+        print("Shop Name: " + self.shop_name)
+        Fruit.display(self)
+
+
+class Director(Shop):
+    director_level = None
+    director_name = None
+    director_id = None
+
+    def __init__(self, shop_id, shop_type, shop_name, attr1, attr2, attr3, attr4, d_level, d_name, d_id):
+        Shop.__init__(self, shop_id, shop_type, shop_name, attr1, attr2, attr3, attr4)
+        self.director_level = d_level
+        self.director_name = d_name
+        self.director_id = d_id
+
+    def display(self):
+        Shop.display(self)
+        print("Director Level: " + str(self.director_level))
+        print("Director Name: " + str(self.director_name))
+        print("Director ID: " + str(self.director_id))
+
+
+d1 = Director("0001", "supermarket", "ABC Supermarket", "sweet", "watermelon", "green", "5", "D-LEVEL-1", "Bobby", "092812")
+d1.display()
+d2 = Director("0002", "fruit shop", "The Red Star Shop", "sour", "lemon", "yellow", "5", "D-LEVEL-5", "Candice", "037281")
+d2.display()
+ 
+#5
+class Sweet(Fruit):
+    fruit_id = None
+    def __init__(self,attr2,attr3,attr4,fruit_id):
+        Fruit.__init__(self, "sweet", attr2, attr3, attr4)
+        self.fruit_id = fruit_id
+    def display(self):
+        Fruit.display(self)
+        print("The fruit ID is:", self.fruit_id)
+a_1 = Sweet()
+ 
+ 
+ 
+        
