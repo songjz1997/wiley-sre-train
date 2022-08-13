@@ -276,8 +276,130 @@ class Sweet(Fruit):
     def display(self):
         Fruit.display(self)
         print("The fruit ID is:", self.fruit_id)
-a_1 = Sweet()
- 
- 
- 
+a_1 = Sweet("apple","red","2","001")
+a_1.display()
+a_2 = Sweet("melon","green","10","002")
+a_2.display()
+
+#6
+class Sour(Fruit):
+    fruit_id = None
+    def __init__(self,attr2,attr3,attr4,fruit_id):
+        Fruit.__init__(self, "sour", attr2, attr3, attr4)
+        self.fruit_id = fruit_id
+    def display(self):
+        Fruit.display(self)
+        print("The fruit ID is:", self.fruit_id)
+
+b_1 = Sour("lemon","yellow","1","003")
+b_1.display()
+
+print(isinstance(b_1,Fruit))
+
+
+
+
+
+#Self-Assessment: File System
+#Song Jiaze 2022-08-12
+
+class FileItem:
+    name = None
+    permission = None
+    owner = None
+    size = None
+
+    def __init__(self, name, permission, owner, size):
+        self.name = name
+        self.permission = permission
+        self.owner = owner
+        self.size = size
+
+    def display(self):
+        print(self.name, self.permission, self.owner, self.size)
+
+
+class CsvFile(FileItem):
+    csv_delimiter = None
+
+    def __init__(self, name, permission, owner, size, csv_delimiter):
+        FileItem.__init__(self, name, permission, owner, size)
+        self.csv_delimiter = csv_delimiter
+
+
+class JpgFile(FileItem):
+    jpg_color = None
+
+    def __init__(self, name, permission, owner, size, jpg_color):
+        FileItem.__init__(self, name, permission, owner, size)
+        self.jpg_color = jpg_color
+
+
+class Mp3File(FileItem):
+    mp3_type = None
+
+    def __init__(self, name, permission, owner, size, mp3_type):
+        FileItem.__init__(self, name, permission, owner, size)
+        self.mp3_type = mp3_type
+
+
+class Directory(FileItem):
+    item = None
+
+    def __init__(self, name, permission, owner, size):
+        FileItem.__init__(self, name, permission, owner, size)
+        self.item = []
+
+    def display(self):
+        FileItem.display(self)
+        print("The above directory includes the following files:")
+        for i in self.item:
+            i.display()
+        print("")
+
+    def add_file(self, files):
+        for i in files:
+            self.item.append(i)
+
+#Create a filesystem with at least 20 objects
+#Include at least three objects of each type (CsvFile, JpgFile, Mp3File, and Directory)
+csv_1 = CsvFile("csv1", "rwx", "Lily", "1MB", ",")
+csv_2 = CsvFile("csv2", "rw", "Lily", "2MB", ",")
+csv_3 = CsvFile("csv3", "wx", "Lily", "3MB", ",")
+csv_4 = CsvFile("csv4", "rx", "Lily", "4MB", ",")
+csv_5 = CsvFile("csv5", "rwx", "Lily", "5MB", ",")
+
+jpg_1 = JpgFile("jpg1", "rwx", "Lily", "1MB", "color")
+jpg_2 = JpgFile("jpg2", "rwx", "Lily", "2MB", "color")
+jpg_3 = JpgFile("jpg3", "rx", "Lily", "3MB", "B&W")
+jpg_4 = JpgFile("jpg4", "rwx", "Lily", "10MB", "color")
+jpg_5 = JpgFile("jpg5", "rwx", "Lily", "15MB", "color")
+
+mp3_1 = Mp3File("mp31", "rwx", "Lily", "1MB", "jazz")
+mp3_2 = Mp3File("mp32", "rwx", "Lily", "3MB", "R&B")
+mp3_3 = Mp3File("mp33", "rx", "Lily", "10MB", "hippop")
+mp3_4 = Mp3File("mp34", "wx", "Lily", "2MB", "jazz")
+mp3_5 = Mp3File("mp35", "wx", "Lily", "3MB", "Rap")
+
+directory_1 = Directory("dir1", "rwx", "Lily", "500")
+directory_2 = Directory("dir2", "rwx", "Lily", "500")
+directory_3 = Directory("dir3", "rwx", "Lily", "500")
+directory_4 = Directory("dir4", "rwx", "Lily", "500")
+directory_5 = Directory("dir5", "rwx", "Lily", "500")
+
+directory_1.add_file([csv_2, jpg_1, mp3_5])
+
+#Include at least one directory that contains at least two other directories and at least two files.
+directory_2.add_file([csv_3, jpg_2, mp3_1, directory_1, directory_5])
+
+#Include a directory structure with a depth of at least three (directory in a directory in a directory)
+directory_3.add_file([csv_1, jpg_3, mp3_2, directory_2])
+directory_4.add_file([csv_4, jpg_4, mp3_4, directory_5])
+directory_5.add_file([csv_5, jpg_5, mp3_5])
+
+directory_4.display()
+
+
+
+    
         
