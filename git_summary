@@ -1,0 +1,45 @@
+What is Git:
+Git is a distributed version control system (VCS) or source control management (SCM) system. 
+An SCM is an application that keeps track of your code and all the changes that are made to it. 
+It also allows us to share our code with others and collaborate with one another without overwriting each other’s changes. 
+
+Git advantages:
+Git is cross-platform: it works on most operating systems, including Windows, Mac, and Linux.
+Git is an open-source project and does not have any licensing costs. You may need licensing if you choose to use an established online provider or if you choose to purchase third-party tools, but the system itself does not have licensing costs.
+Git is also easy to learn and can be very simple, but it offers complex features that you can take advantage of if you need them or as you grow and require more of their use.
+
+Git VS GitHub
+Git is a separate technology from GitHub, and you need BOTH to manage your repository.
+
+Git is software that you must install on your computer. It manages and tracks changes to files in your local repository so that it can report those changes to GitHub when you synchronize your local files with your remote repository files.
+GitHub is a website that provides Git hosting services. You must create an account in GitHub before you can create a remote repository for your files.
+
+
+Git version check:
+git version
+
+Configuring git with username and email:
+git config --global user.name "USERNAME"
+git config --global user.email "EMAIL"
+
+Queue the changes:
+git add --all
+#It is possible to name specific files and folders in this step, but using add --all guarantees that you won't forget anything.
+
+Commit the changes queued:
+git commit -m "comment"
+#We can easily identify in GitHub where specific changes were made and even revert to earlier versions of the code if we need to.
+#When we are working with a team of developers, we can easily identify who made what changes and why.
+#The text inside quotation marks is the commit message, which Git will transmit to GitHub when we push the changes to our online repository. This message should be relatively short and descriptive for that specific change, and it should be different for each commit.
+
+Pull changes from GitHub:
+git pull origin master
+#This command tells git to pull down any changes made to the repository since the last commit (by anyone from any computer) and ensures that your copy of the repository is up to date.
+#master refers to the main branch of the repository
+
+Push changes to Github：
+git push origin master
+#Origin refers to the main online repository, and master refers to the main branch of that repository.
+
+
+git .gitignore
