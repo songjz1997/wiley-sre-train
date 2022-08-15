@@ -23,8 +23,8 @@ git config --global user.name "USERNAME"
 git config --global user.email "EMAIL"
 
 Clone the repo:
-git clone "repoaddress"
-#
+git clone -b [tagname] [repo_link]
+#eg. git clone https://github.com/songjz1997/git
 
 Create new branch:
 git branch newbranchname
