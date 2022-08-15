@@ -22,6 +22,16 @@ Configuring git with username and email:
 git config --global user.name "USERNAME"
 git config --global user.email "EMAIL"
 
+Clone the repo:
+git clone "repoaddress"
+#
+
+Create new branch:
+git branch newbranchname
+
+Go to some branch:
+git checkout branchname
+
 Queue the changes:
 git add --all
 #It is possible to name specific files and folders in this step, but using add --all guarantees that you won't forget anything.
@@ -33,13 +43,20 @@ git commit -m "comment"
 #The text inside quotation marks is the commit message, which Git will transmit to GitHub when we push the changes to our online repository. This message should be relatively short and descriptive for that specific change, and it should be different for each commit.
 
 Pull changes from GitHub:
-git pull origin master
+git pull origin main
 #This command tells git to pull down any changes made to the repository since the last commit (by anyone from any computer) and ensures that your copy of the repository is up to date.
 #master refers to the main branch of the repository
 
 Push changes to Github：
-git push origin master
+git push origin main
 #Origin refers to the main online repository, and master refers to the main branch of that repository.
 
+.gitignore:
+Ignored files are tracked in a special file named .gitignore that is checked in at the root of your repository.
+touch .gitignore
+# ignore all file with .log
+*.log
+# ignore the file literally named foo[01].txt
+foo\[01\].txt
 
-git .gitignore
+
