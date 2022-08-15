@@ -1,0 +1,13 @@
+"Go to file": choose a file to look through
+"Add file": 1. "Create a file": Create an empty new file in the repo
+            2. "Upload files": Upload files from local to the repo
+"Code": 1. Clone: get the address of repo
+"main": Find or create a branch , add/switch branches/tags
+"issue": New issue - write the issue and could assign someone to solve
+"Pull Request": Create a pull request - Pull requests help you collaborate on code with other people. As pull requests are created, they’ll appear here in a searchable and filterable list.
+"Actions": Build, test, and deploy your code. Make code reviews, branch management, and issue triaging work the way you want. Select a workflow to get started.
+"Projects": Add a project that you'd like to view and access from this repository.
+"Wiki": Wikis provide a place in your repository to lay out the roadmap of your project, show the current status, and document software better, together.
+"Security": setting for security choices
+"Insights": Provide the insight for this repo
+"Settings": general setting change for these repo
