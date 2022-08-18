@@ -1,0 +1,7 @@
+##test file here 
+t1=('Lily','Lee')
+t2=('Singer',)
+t3=('DB',)
+t4=('JN',)
+t=t1+t2+t3+t4
+print(t)
