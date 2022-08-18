@@ -1,7 +1,7 @@
 ##test file here 
-t1=('Lily','Lee')
-t2=('Singer',)
-t3=('DB',)
-t4=('JN',)
+t1=('A','Python test file')
+t2=('successfully runned',)
+t3=('in Jenkins',)
+t4=('pipeline',)
 t=t1+t2+t3+t4
 print(t)
