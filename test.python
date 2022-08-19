@@ -3,6 +3,6 @@ t1=('A','Python test file')
 t2=('successfully runned',)
 t3=('in Jenkins',)
 t4=('pipeline',)
-t5=input('Please input a number')
-t=t1+t2+t3+t4
+t5=(65,)
+t=t1+t2+t3+t4+t5
 print(t5)
