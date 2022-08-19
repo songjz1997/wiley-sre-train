@@ -5,4 +5,4 @@ t3=('in Jenkins',)
 t4=('pipeline',)
 t5=(65,)
 t=t1+t2+t3+t4+t5
-print(t5)
+print(t)
