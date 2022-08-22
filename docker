@@ -1,0 +1,181 @@
+
+
+Running containers and managing them: 
+Deploy Jenkins and perform some docker operation
+
+sudo docker pull jenkins/jenkins
+sudo docker run jenkins/jenkins
+docker ps -a 
+
+docker start 2351a46c7bcf
+ubuntu@ip-172-31-24-238:~$ sudo docker ps 
+CONTAINER ID   IMAGE             COMMAND                  CREATED             STATUS          PORTS                 NAMES
+2351a46c7bcf   jenkins/jenkins   "/usr/bin/tini -- /u…"   About an hour ago   Up 11 minutes   8080/tcp, 50000/tcp   pedantic_tu
+
+
+
+Creating an image: Deploy Static HTML Website as Container
+
+
+nano index.php
+<?php
+  echo "Welcome to tecadmin.net </br>";
+  echo "Running PHP with Apache on Docker";
+?>
+
+nano Dockerfile
+
+FROM php:7.4-apache  
+COPY . /var/www/html
+
+sudo docker build -t img-php-apache-example .
+sudo docker run -it img-php-apache-example
+
+sudo docker run -it -d -p 8081:80 img-php-apache-example
+dc23fc8e7753c1adebca13c6d79490b13ab0353dfd1b0b37caf495d32874c33e
+
+
+
+
+
+
+Create an image without Katacoda’s autofill feature: Building Container Images
+
+ubuntu@ip-172-31-24-238:~$ mkdir test_dk
+ubuntu@ip-172-31-24-238:~$ cd test_dk
+ubuntu@ip-172-31-24-238:~/test_dk$ vim Dockerfile
+
+# A dockerfile must always start by importing the base image.
+# We use the keyword 'FROM' to do that.
+# In our example, we want import the python image.
+# So we write 'python' for the image name and 'latest' for the version.
+FROM python:latest
+
+# In order to launch our python code, we must import it into our image.
+# We use the keyword 'COPY' to do that.
+# The first parameter 'main.py' is the name of the file on the host.
+# The second parameter '/' is the path where to put the file on the image.
+# Here we put the file at the image root folder.
+COPY main.py /
+
+# We need to define the command to launch when we are going to run the image.
+# We use the keyword 'CMD' to do that.
+# The following command will execute "python ./main.py".
+CMD [ "python", "./main.py" ]
+
+ubuntu@ip-172-31-24-238:~/test_dk$ vim main.py
+
+#!/usr/bin/env python3
+
+print("Docker is magic! --From Song")
+
+buntu@ip-172-31-24-238:~/test_dk$ sudo docker build /home/ubuntu/test_dk -t python_test
+Sending build context to Docker daemon  3.584kB
+Step 1/3 : FROM python:latest
+latest: Pulling from library/python
+001c52e26ad5: Already exists 
+d9d4b9b6e964: Pull complete 
+2068746827ec: Pull complete 
+9daef329d350: Pull complete 
+8a335986117b: Pull complete 
+588423e31bcf: Pull complete 
+f40cdf3ebc10: Pull complete 
+04378c690b5e: Pull complete 
+ace6d68f6bea: Pull complete 
+Digest: sha256:cbf49327fae903d64ab28251912fc00faea2c1baee493d347a07973a2cb50f98
+Status: Downloaded newer image for python:latest
+ ---> b62e4294564c
+Step 2/3 : COPY main.py /
+ ---> e0d719081460
+Step 3/3 : CMD [ "python", "./main.py" ]
+ ---> Running in 5d216b05dcf1
+Removing intermediate container 5d216b05dcf1
+ ---> 6b63bf4191dd
+Successfully built 6b63bf4191dd
+Successfully tagged python_test:latest
+
+ubuntu@ip-172-31-24-238:~/test_dk$ sudo docker run python_test
+Docker is magic! --From Song
+
+
+
+
+
+
+
+Working with persistent storage: 
+Persisting Data Using Volumes
+https://www.tinystacks.com/blog-post/how-to-persist-data-in-docker-volumes/
+
+sudo docker volume ls
+DRIVER    VOLUME NAME
+local     8a7d9dd1cdf6331889a26552ee4657ca5a1c7e6bc44c715b42d32bb9c4dfd767
+local     665e584e52d73a85f9973860d0412bb0e40178596cffc86b2d5c08b3cd5f35e7
+local     jenkins_home
+
+sudo docker volume inspect jenkins_home
+[
+    {
+        "CreatedAt": "2022-08-22T05:09:10Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/snap/docker/common/var-lib-docker/volumes/jenkins_home/_data",
+        "Name": "jenkins_home",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+
+sudo docker run -it -v jenkins_home:/app ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+d19f32bd9e41: Pull complete Digest: sha256:34fea4f31bf187bc915536831fd0afc9d214755bf700b5cdb1336c82516d154e
+Status: Downloaded newer image for ubuntu:latest
+root@80e1cc70da52:/# ls -l
+total 52
+drwxr-xr-x   2 1000 1000 4096 Aug 10 10:31 app
+lrwxrwxrwx   1 root root    7 Aug  1 13:22 bin -> usr/bin
+drwxr-xr-x   2 root root 4096 Apr 18 10:28 boot
+drwxr-xr-x   5 root root  360 Aug 22 08:38 dev
+drwxr-xr-x   1 root root 4096 Aug 22 08:38 etc
+drwxr-xr-x   2 root root 4096 Apr 18 10:28 home
+lrwxrwxrwx   1 root root    7 Aug  1 13:22 lib -> usr/lib
+lrwxrwxrwx   1 root root    9 Aug  1 13:22 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root    9 Aug  1 13:22 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root   10 Aug  1 13:22 libx32 -> usr/libx32
+drwxr-xr-x   2 root root 4096 Aug  1 13:22 media
+drwxr-xr-x   2 root root 4096 Aug  1 13:22 mnt
+drwxr-xr-x   2 root root 4096 Aug  1 13:22 opt
+dr-xr-xr-x 182 root root    0 Aug 22 08:38 proc
+drwx------   2 root root 4096 Aug  1 13:25 root
+drwxr-xr-x   5 root root 4096 Aug  1 13:25 run
+lrwxrwxrwx   1 root root    8 Aug  1 13:22 sbin -> usr/sbin
+drwxr-xr-x   2 root root 4096 Aug  1 13:22 srv
+dr-xr-xr-x  13 root root    0 Aug 22 08:38 sys
+drwxrwxrwt   2 root root 4096 Aug  1 13:25 tmp
+drwxr-xr-x  14 root root 4096 Aug  1 13:22 usr
+drwxr-xr-x  11 root root 4096 Aug  1 13:25 var
+
+root@80e1cc70da52:/# cd app/
+root@80e1cc70da52:/app# touch afile     
+root@80e1cc70da52:/app# ls
+afile
+root@80e1cc70da52:/app# exit
+exit
+
+ubuntu@ip-172-31-24-238:~$ sudo docker ps -a
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS                          PORTS                                             NAMES
+80e1cc70da52   ubuntu                   "bash"                   3 minutes ago    Exited (0) About a minute ago                                                     dazzling_goodall
+ubuntu@ip-172-31-24-238:~$ sudo docker rm -f 80e1cc70da52
+80e1cc70da52
+
+ubuntu@ip-172-31-24-238:~$ sudo docker run -it -v jenkins_home:/app ubuntu bash
+root@9b44ec9a3cb1:/# ls
+app  bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@9b44ec9a3cb1:/# cd app/
+root@9b44ec9a3cb1:/app# ls
+afile
+root@9b44ec9a3cb1:/app# exit
+exit
+
+
